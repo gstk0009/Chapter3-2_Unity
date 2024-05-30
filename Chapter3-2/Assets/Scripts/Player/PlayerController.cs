@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float EquipItemSpeed;
     public float UseConsumableItemSpeed;
     private Vector2 curMovementInput;
-    private bool isMoving;
+    private Vector3 beforeDirection;
     public LayerMask GroundLayerMask;
 
     [Header("Jump")]
@@ -74,7 +74,20 @@ public class PlayerController : MonoBehaviour
         dir *= (MoveSpeed + EquipItemSpeed + UseConsumableItemSpeed);
         dir.y = _rigidbody.velocity.y;
 
-        _rigidbody.velocity = dir;
+        if (dir != Vector3.zero)
+        {
+            _rigidbody.velocity = dir;
+            beforeDirection = dir;
+        }
+
+        else
+        {
+            if (dir != beforeDirection)
+            {
+                _rigidbody.velocity = dir;
+                beforeDirection = dir;
+            }
+        }
     }
 
     void CameraLook()

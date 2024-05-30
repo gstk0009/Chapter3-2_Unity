@@ -5940,7 +5940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2e57c00d059aa44ae92105542fe328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 30
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -6718,7 +6717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2e57c00d059aa44ae92105542fe328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 30
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -8827,7 +8825,7 @@ Transform:
   m_GameObject: {fileID: 1242128345}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.8, y: 0, z: 19.2}
+  m_LocalPosition: {x: -0.3, y: 0, z: -0.9}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
