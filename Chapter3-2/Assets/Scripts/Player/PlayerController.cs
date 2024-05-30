@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float EquipItemSpeed;
     public float UseConsumableItemSpeed;
     private Vector2 curMovementInput;
+    private bool isMoving;
     public LayerMask GroundLayerMask;
 
     [Header("Jump")]
@@ -39,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
     public Action Inventory;
     public Rigidbody _rigidbody;
+
+    private bool isRiding;
 
     private void Awake()
     {

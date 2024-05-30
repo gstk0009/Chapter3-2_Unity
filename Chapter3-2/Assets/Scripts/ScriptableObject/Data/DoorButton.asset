@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f281bb0dfefdda418b5d1894d7efe0d, type: 3}
-  m_Name: DoorButton1
+  m_Name: DoorButton
   m_EditorClassIdentifier: 
   DisplayName: "\uBC84\uD2BC : [E] \uD0A4\uB97C \uB204\uB974\uC138\uC694."
   Description: "\uC774 \uBC84\uD2BC\uC744 \uB204\uB974\uBA74 \uBB38\uC774 \uC5F4\uB9AC\uAC8C
