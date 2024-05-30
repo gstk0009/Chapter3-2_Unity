@@ -26,44 +26,36 @@
 1. 기본 이동 및 점프 (이동 : WASD, 점프 : Space)
 2. 체력바 UI, 추가 UI (Stamina)
 
-
-https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/6845f931-bfb9-4a51-b620-ed04bfbefca3
-
+![이동, 점프](https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/c3d0284f-1a7c-43bf-aedf-83981da609b0)
 
 4. 동적 환경 조사, 아이템 데이터, 다양한 아이템 구현
 
-
-https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/c81ff120-2b89-46c7-a20e-70a65d044019
+![동적환경조사, 아이템 데이터](https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/f2805ff3-0146-4965-b716-d3a1c86897b6)
 
 
 5. 점프대
 
-
-https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/a825515d-a9a4-48cd-aeef-9bd853daed1b
+![점프대](https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/a369a49a-fb38-4b0e-b12e-d484595fd49f)
 
 
 6. 아이템 사용
 
-
-https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/8cc385f5-51bb-44be-a0c8-36c1cc06cb4a
-
+![아이템 사용](https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/f0d5c0a3-0dea-4a5d-97e0-77dea0a4e085)
 
 
 선택 요구사항
 1. 3인칭 시점 (R키)
 
-
-https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/8a9474ae-a51d-4b62-8dc7-dc432ff76978
+![3인칭 시점](https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/0d8b7691-06ad-41d3-9fee-1368c5e5af75)
 
 
 2. 장비 장착
 
-
-https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/6d537b05-fef7-4de2-ad6b-326a50ecd1ae
+![장비장착](https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/27030c4b-d9e6-46f9-9b6a-3d1d9c8e829d)
 
 
 3. 상호작용 가능한 오브젝트 표시
 
+![상호작용](https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/824f7e9c-6dc2-4973-91a9-a8f9dde2f822)
 
-https://github.com/gstk0009/Chapter3-2_Unity/assets/167177429/c060f451-4e22-46e7-b8ab-22e64ea1ae9c
 
