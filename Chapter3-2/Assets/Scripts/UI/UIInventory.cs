@@ -165,8 +165,16 @@ public class UIInventory : MonoBehaviour
 
         for (int i = 0; i < selectedItem.Consumables.Length; i++)
         {
-            selectStatName.text += selectedItem.Consumables[i].BuffType.ToString() + "\n";
-            selectStatValue.text += selectedItem.Consumables[i].value.ToString() + "\n";
+            BuffItemDataConsumable selectItem = selectedItem.Consumables[i];
+
+            selectStatName.text += selectItem.BuffType.ToString() + "\n";
+            selectStatValue.text += selectItem.value.ToString() + "\n";
+
+            if (selectItem.ApplyingTime != 0)
+            {
+                selectStatName.text += "ApplyingTime\n";
+                selectStatValue.text += selectItem.ApplyingTime.ToString() + "\n";
+            }
         }
 
         for (int i = 0; i < selectedItem.BuffItems.Length; i++)
@@ -183,13 +191,39 @@ public class UIInventory : MonoBehaviour
 
     public void OnUseButton()
     {
-        //if (selectedItem.Itemtype == ItemType.BuffItemConsumable)
-        //{
-        //    for (int i = 0; i < selectedItem.Consumables.Length; i++)
-        //    {
-
-        //    }
-        //}
+        if (selectedItem.Itemtype == ItemType.BuffItemConsumable)
+        {
+            for (int i = 0; i < selectedItem.Consumables.Length; i++)
+            {
+                BuffItemDataConsumable selectItem = selectedItem.Consumables[i];
+                switch (selectItem.BuffType)
+                {
+                    case BuffItemType.Speed:
+                        if (!PlayerManager.Instance.Player.condition._isUsedItemSpeed)
+                        {
+                            PlayerManager.Instance.Player.controller.UseConsumableItemSpeed = selectItem.value;
+                            PlayerManager.Instance.Player.condition.GetUsedItemSpeed(true, selectItem.ApplyingTime);
+                        }
+                        else
+                        {
+                            Debug.Log("스피드 아이템 사용중");
+                        }
+                        break;
+                    case BuffItemType.Jump:
+                        if (!PlayerManager.Instance.Player.condition._isUsedItemJump)
+                        {
+                            PlayerManager.Instance.Player.controller.UseConsumableJump = selectItem.value;
+                            PlayerManager.Instance.Player.condition.GetUsedItemJump(true, selectItem.ApplyingTime);
+                        }
+                        else
+                        {
+                            Debug.Log("점프 아이템 사용중");
+                        }
+                        break;
+                }
+            }
+            RemoveSelectedItem();
+        }
     }
 
     public void OnDropButton()
@@ -220,6 +254,7 @@ public class UIInventory : MonoBehaviour
             UnEquip(curEquipIndex);
         }
 
+        SetEquipItemData();
         slots[selectedItemIndex].equipped = true;
         curEquipIndex = selectedItemIndex;
         PlayerManager.Instance.Player.equip.EquipNew(selectedItem);
@@ -230,6 +265,7 @@ public class UIInventory : MonoBehaviour
 
     private void UnEquip(int index)
     {
+        SetUnEquipItemData();
         slots[index].equipped = false;
         PlayerManager.Instance.Player.equip.UnEquip();
         UpdateUI();
@@ -243,5 +279,37 @@ public class UIInventory : MonoBehaviour
     public void OnUnEquipButton()
     {
         UnEquip(selectedItemIndex);
+    }
+
+    private void SetUnEquipItemData()
+    {
+        for (int i = 0; i < slots[curEquipIndex].item.BuffItems.Length; i++)
+        {
+            switch (slots[curEquipIndex].item.BuffItems[i].BuffType)
+            {
+                case BuffItemType.Speed:
+                    PlayerManager.Instance.Player.controller.EquipItemSpeed = 0;
+                    break;
+                case BuffItemType.Jump:
+                    PlayerManager.Instance.Player.controller.EquipItemJump = 0;
+                    break;
+            }
+        }
+    }
+
+    private void SetEquipItemData()
+    {
+        for (int i = 0; i < slots[selectedItemIndex].item.BuffItems.Length; i++)
+        {
+            switch (slots[selectedItemIndex].item.BuffItems[i].BuffType)
+            {
+                case BuffItemType.Speed:
+                    PlayerManager.Instance.Player.controller.EquipItemSpeed = slots[selectedItemIndex].item.BuffItems[i].value;
+                    break;
+                case BuffItemType.Jump:
+                    PlayerManager.Instance.Player.controller.EquipItemJump = slots[selectedItemIndex].item.BuffItems[i].value;
+                    break;
+            }
+        }
     }
 }

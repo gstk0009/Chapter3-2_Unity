@@ -1,8 +1,4 @@
-using JetBrains.Annotations;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public enum ItemType
@@ -16,8 +12,7 @@ public enum BuffItemType
 {
     Speed,
     Health,
-    Jump,
-    ApplyingTime
+    Jump
 }
 
 [Serializable]
@@ -32,6 +27,7 @@ public class BuffItemDataConsumable
 {
     public BuffItemType BuffType;
     public float value;
+    public float ApplyingTime;
 }
 
 

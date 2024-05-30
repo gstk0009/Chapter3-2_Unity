@@ -6,11 +6,15 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     public float MoveSpeed;
+    public float EquipItemSpeed;
+    public float UseConsumableItemSpeed;
     private Vector2 curMovementInput;
     public LayerMask GroundLayerMask;
 
     [Header("Jump")]
     public float JumpPower;
+    public float EquipItemJump;
+    public float UseConsumableJump;
     public float useJumpStamina;
     public float jumpRate;
     private bool jumping;
@@ -34,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public Camera ThirdPerson;
 
     public Action Inventory;
-    private Rigidbody _rigidbody;
+    public Rigidbody _rigidbody;
 
     private void Awake()
     {
@@ -64,7 +68,7 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= MoveSpeed;
+        dir *= (MoveSpeed + EquipItemSpeed + UseConsumableItemSpeed);
         dir.y = _rigidbody.velocity.y;
 
         _rigidbody.velocity = dir;
@@ -120,7 +124,7 @@ public class PlayerController : MonoBehaviour
         {
             if (PlayerManager.Instance.Player.condition.UseStamina(useJumpStamina))
             {
-                _rigidbody.AddForce(Vector2.up * JumpPower, ForceMode.Impulse);
+                _rigidbody.AddForce(Vector2.up * (JumpPower + EquipItemJump + UseConsumableJump), ForceMode.Impulse);
                 Invoke("OnCanJump", jumpRate);
             }
         }
